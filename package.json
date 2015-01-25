@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "sensortag",
+    "TI-Sensortag",
     "BLE",
-    "canvas"
+    "canvas",
+    "websockets"
   ],
-  "author": "@mttholl",
+  "author": "mattholl",
   "license": "ISC"
 }
