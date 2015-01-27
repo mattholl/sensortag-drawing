@@ -1,6 +1,5 @@
 var SensorTag = require("sensortag");
 exports.testAccelerometer = function(test) {
-
     test.expect(3);
     SensorTag.discover(function(sensorTag) {
         sensorTag.connect(function() {

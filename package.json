@@ -4,7 +4,7 @@
   "description": "Take data from a connected SensorTag device and stream it to connected browsers. The data is used to draw to a canvas element.",
   "main": "server.js",
   "scripts": {
-    "test": "nodeunit test"
+    "test": "nodeunit test/connect-to-sensortag.js"
   },
   "keywords": [
     "TI-Sensortag",
