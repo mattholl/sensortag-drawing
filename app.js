@@ -1,17 +1,21 @@
 var tag = require('./lib/SensorTagStream.js');
 
-// socket.io
-// on connect tag.pipe(socket)
-tag.pipe(process.stdout);
-
 var express = require('express'),
     hbs = require('hbs'),
     morgan = require('morgan'),
     logger = require('express-logger'),
     compression = require('compression'),
     fs = require('fs');
+    websocket = require('websocket-stream');
 
 var app = express();
+var server = app.listen(3000);
+
+var wss = websocket.createServer({server: server}, handle);
+
+function handle(stream) {
+  tag.pipe(stream);
+}
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/src/views');
@@ -72,5 +76,5 @@ app.use(function(req, res, next) {
   res.type('txt').send('Not found');
 });
 
-app.listen(3000);
+
 

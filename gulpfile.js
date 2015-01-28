@@ -23,9 +23,9 @@ gulp.task('jshint', function() {
 // mv 404 files to build etc
 // mv index.html in build
 // also move other static files
-gulp.task('move-hbs-views', function() {
-    gulp.src('src/views/**/*').pipe(gulp.dest('build/views'));
-});
+// gulp.task('move-hbs-views', function() {
+//     gulp.src('src/views/**/*').pipe(gulp.dest('build/views'));
+// });
 
 // Styles
 gulp.task('sass', function () {
@@ -48,8 +48,12 @@ gulp.task('clean', function(cb) {
     del(['build/css', 'build/js', 'build/img', 'build/views'], cb);
 });
 
+gulp.task('socket.io-stream-client', function() {
+    // Move socket io stream client file into the build folder
+    gulp.src('src/js/socket.io-stream.js').pipe(gulp.dest('build/js'));
+});
 
-    gulp.task('watch', ['sass'], function() {
+gulp.task('watch', ['sass', 'socket.io-stream-client'], function() {
 
     // Watch .scss files
     gulp.watch('src/**/*', ['sass']);
@@ -58,7 +62,10 @@ gulp.task('clean', function(cb) {
 
     // Watch .js files
     // gulp.watch('src/scripts/**/*.js', ['scripts']);
-    var bundler = watchify(browserify('./src/js/main.js', watchify.args));
+    console.log(watchify.args);
+    // var bundler = watchify(browserify('./src/js/main.js', watchify.args));
+    var bundler = watchify(browserify('./src/js/main.js', { cache: {}, packageCache: {}, fullPaths: true, debug : true }));
+
 
     bundler.on('update', rebundle);
 
