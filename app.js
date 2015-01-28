@@ -1,10 +1,8 @@
-// require tag
-// set up express
-// static browserify js
-// handlebars render on server and serve
+var tag = require('./lib/SensorTagStream.js');
+
 // socket.io
 // on connect tag.pipe(socket)
-// gulpfile, sass, watchify
+tag.pipe(process.stdout);
 
 var express = require('express'),
     hbs = require('hbs'),
