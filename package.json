@@ -1,6 +1,6 @@
 {
   "name": "sensortag-drawing",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Take data from a connected SensorTag device and stream it to connected browsers. The data is used to draw to a canvas element.",
   "main": "server.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "TI-Sensortag",
     "BLE",
     "canvas",
-    "websockets"
+    "websockets",
+    "HTML5 canvas"
   ],
   "author": "mattholl",
   "license": "ISC",
