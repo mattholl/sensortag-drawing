@@ -8,9 +8,9 @@ var express = require('express'),
     fs = require('fs');
     websocket = require('websocket-stream');
 
+// Set the server port and attach the websocket server to it.
 var app = express();
 var server = app.listen(3000);
-
 var wss = websocket.createServer({server: server}, handle);
 
 function handle(stream) {
@@ -26,7 +26,7 @@ app.use(express.static(__dirname + '/build'));
 var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'});
 app.use(morgan('combined', {stream: accessLogStream}));
 
-// Gzip the responses
+// Gzip the response
 app.use(compression());
 
 var router = express.Router();

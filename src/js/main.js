@@ -8,7 +8,7 @@ var canvasEl = document.getElementById("canvas"),
 var canvasWidth = canvasEl.offsetWidth,
     canvasHeight = canvasEl.offsetHeight;
 
-// Global circle position
+// Global circle position, start position
 var circlePos = {
     x : canvasWidth / 2,
     y : canvasHeight /2
@@ -18,9 +18,13 @@ var frameRate = 60;
 
 // Setup and draw loop
 (function setup() {
+    // Attach SensorTag data callback function
     stream.on('data', function(data) {
         var tagData = JSON.parse(data.toString());
-        console.log(tagData);
+        if(tagData.acceleromter) {
+            circlePos.x += tagData.acceleromter.x * 100;
+            circlePos.y += tagData.acceleromter.y * 100;
+        }
     });
     update();
 })();
@@ -33,7 +37,9 @@ function update() {
 }
 
 function draw() {
-    // TODO Clear with opacity
+    canvas.fillStyle = 'rgba(225,225,225,0.1)';
+    canvas.fillRect(0, 0, canvasEl.width, canvasEl.height);
+
     drawCircle();
 }
 
