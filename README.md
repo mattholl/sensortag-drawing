@@ -1,2 +1,2 @@
-# sensortag-drawing
-A prototype which uses node.js to connect to a Texas Instruments BLE SensorTag device and stream the sensor data to a connected browser over websockets.
+# sensortag-drawing prototype
+This prototype uses a node.js with a [Texas Instruments BLE SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag/index.shtml?INTC=SensorTag&HQS=sensortag) to stream data to all connected browsers over websockets. This data is then used to update an HTML5 canvas drawing.
