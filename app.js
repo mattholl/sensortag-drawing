@@ -10,7 +10,7 @@ var express = require('express'),
 
 // Set the server port and attach the websocket server to it.
 var app = express();
-var server = app.listen(3000);
+var server = app.listen(3001);
 var wss = websocket.createServer({server: server}, handle);
 
 function handle(stream) {

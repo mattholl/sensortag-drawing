@@ -1,5 +1,5 @@
 var ws = require('websocket-stream'),
-    stream = ws('ws://localhost:3000');
+    stream = ws('ws://localhost:3001');
 
 var canvasEl = document.getElementById("canvas"),
     canvas = canvasEl.getContext("2d");
