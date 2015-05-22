@@ -6,4 +6,3 @@ Requires node v0.10.x.
 
 npm install and run node app.js to create a web socket server push data from the SensorTag to a drawing canvas loaded on localhost:3001.
 
-[see](links to webpage)
